@@ -69,14 +69,16 @@
 
  <td>
   <% if @userx.find(book_comment.user_id).profile_image.attached? %>
-             <%= link_to user_path(@book.user_id) do %>
-             <%= image_tag @userx.find(book_comment.user_id).profile_image.variant(resize_to_limit: [100, 100]) %><% end %>
+            <a href='<%= "/users/#{@userx.find(book_comment.user_id).id}" %>'>
+             <%= image_tag @userx.find(book_comment.user_id).profile_image.variant(resize_to_limit: [100, 100]) %></a>
              <% else %>
-             <a href='<%= "/users/#{@book.user_id}" %>'><%= image_tag 'sss.jpg' %></a><br>
+             <a href='<%= "/users/#{@userx.find(book_comment.user_id).id}" %>'><%= image_tag 'sss.jpg' %></a><br>
              <%= link_to @user.name, user_path(@book.user_id) %>
              <% end %><br>
 
 
+  </td>
+  <td><a href='<%= "/users/#{@userx.find(book_comment.user_id).id}" %>'><%= @userx.find(book_comment.user_id).name %></a>
   </td>
   <td><%= book_comment.comment %></td>
   <% if book_comment.user_id == current_user.id %> <td>
