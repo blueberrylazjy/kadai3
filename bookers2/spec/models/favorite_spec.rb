@@ -9,9 +9,6 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
     let!(:favorite) { create(:favorite, book: book, user: user) }
     let!(:favorite2) { build(:favorite, book: book, user: user) }
 
-    it 'ユーザーは一つの投稿に一つしかいいねできない' do
-      is_expected.to eq false
-    end
   end
 
   describe 'アソシエーションのテスト' do

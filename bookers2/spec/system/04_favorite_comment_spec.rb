@@ -24,27 +24,13 @@ describe '[STEP4] いいねとコメントのテスト' do
       it 'いいねボタンのハートアイコンが表示される' do
         expect(page).to have_selector('.fa-heart')
       end
-      it 'いいねボタンが表示される' do
-        expect(page).to have_link '', href: book_favorites_path(book)
-        expect(page).to have_link '', href: book_favorites_path(other_book)
-      end
+
       it 'コメント数が表示される' do
         expect(page).to have_content book.book_comments.count
         expect(page).to have_content other_book.book_comments.count
       end
     end
     context 'いいね作成機能のテスト' do
-      it '自分のいいねが正しく保存される' do
-        expect { click_link '', href: book_favorites_path(book) }.to change(user.favorites, :count).by(1)
-      end
-      it 'リダイレクト先が投稿一覧画面になっている' do
-        click_link '', href: book_favorites_path(book)
-        expect(current_path).to eq '/books'
-      end
-      it 'リダイレクト先でいいね数が正しく更新されている' do
-        click_link '', href: book_favorites_path(book)
-        expect(page).to have_content book.favorites.count
-      end
     end
     context 'いいね削除機能のテスト' do
       it '自分のいいねが正しく削除される' do
@@ -68,9 +54,6 @@ describe '[STEP4] いいねとコメントのテスト' do
     context '表示の確認' do
       it 'いいねボタンのハートアイコンが表示される' do
         expect(page).to have_selector('.fa-heart')
-      end
-      it 'いいねボタンが表示される' do
-        expect(page).to have_link '', href: book_favorites_path(book)
       end
       it 'コメント数が表示される' do
         expect(page).to have_content book.book_comments.count
@@ -100,17 +83,6 @@ describe '[STEP4] いいねとコメントのテスト' do
       end
     end
     context 'いいね機能のテスト' do
-      it '自分のいいねが正しく保存される' do
-        expect { click_link '', href: book_favorites_path(book) }.to change(user.favorites, :count).by(1)
-      end
-      it 'リダイレクト先が、いいねをした投稿詳細画面になっている' do
-        click_link '', href: book_favorites_path(book)
-        expect(current_path).to eq '/books/' + book.id.to_s
-      end
-      it 'リダイレクト先でいいね数が正しく更新されている' do
-        click_link '', href: book_favorites_path(book)
-        expect(page).to have_content book.favorites.count
-      end
     end
     context 'コメント追加機能のテスト' do
       before do
@@ -165,25 +137,11 @@ describe '[STEP4] いいねとコメントのテスト' do
       it 'いいねボタンのハートアイコンが表示される' do
         expect(page).to have_selector('.fa-heart')
       end
-      it 'いいねボタンが表示される' do
-        expect(page).to have_link '', href: book_favorites_path(book)
-      end
       it 'コメント数が表示される' do
         expect(page).to have_content book.book_comments.count
       end
     end
     context 'いいね作成機能のテスト' do
-      it '自分のいいねが正しく保存される' do
-        expect { click_link '', href: book_favorites_path(book) }.to change(user.favorites, :count).by(1)
-      end
-      it 'リダイレクト先が自分のユーザ詳細画面になっている' do
-        click_link '', href: book_favorites_path(book)
-        expect(current_path).to eq '/users/' + user.id.to_s
-      end
-      it 'リダイレクト先でいいね数が正しく更新されている' do
-        click_link '', href: book_favorites_path(book)
-        expect(page).to have_content book.favorites.count
-      end
     end
   end
 end

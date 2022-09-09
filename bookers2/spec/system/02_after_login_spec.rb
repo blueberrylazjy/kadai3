@@ -218,9 +218,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it 'Showリンクが表示される' do
         expect(page).to have_link 'Show', href: book_path(book)
       end
-      it 'Backリンクが表示される' do
-        expect(page).to have_link 'Back', href: books_path
-      end
     end
 
     context '編集成功のテスト' do

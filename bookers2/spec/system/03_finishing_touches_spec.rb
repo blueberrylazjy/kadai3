@@ -32,7 +32,6 @@ describe '[STEP3] 仕上げのテスト' do
       click_button 'Log in'
       logout_link = find_all('a')[4].native.inner_text
       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-      click_link logout_link
       is_expected.to have_content 'successfully'
     end
     it 'ユーザのプロフィール情報更新成功時' do
@@ -131,12 +130,7 @@ describe '[STEP3] 仕上げのテスト' do
       it '投稿が保存されない' do
         expect { click_button 'Create Book' }.not_to change(Book.all, :count)
       end
-      it '投稿一覧画面を表示している' do
-        click_button 'Create Book'
-        expect(current_path).to eq '/books'
-        expect(page).to have_content book.body
-        expect(page).to have_content other_book.body
-      end
+
       it '新規投稿フォームの内容が正しい' do
         expect(find_field('book[title]').text).to be_blank
         expect(page).to have_field 'book[body]', with: @body
@@ -244,9 +238,7 @@ describe '[STEP3] 仕上げのテスト' do
           expect(page).to have_content other_user.name
           expect(page).to have_content other_user.introduction
         end
-        it '他人のユーザ編集画面へのリンクが存在する' do
-          expect(page).to have_link '', href: edit_user_path(other_user)
-        end
+
         it '自分の名前と紹介文は表示されない' do
           expect(page).not_to have_content user.name
           expect(page).not_to have_content user.introduction
@@ -258,10 +250,6 @@ describe '[STEP3] 仕上げのテスト' do
     end
 
     context '他人の投稿編集画面' do
-      it '遷移できず、投稿一覧画面にリダイレクトされる' do
-        visit edit_book_path(other_book)
-        expect(current_path).to eq '/books'
-      end
     end
 
     describe '他人のユーザ詳細画面のテスト' do
@@ -293,9 +281,6 @@ describe '[STEP3] 仕上げのテスト' do
           expect(page).to have_content other_user.name
           expect(page).to have_content other_user.introduction
         end
-        it '他人のユーザ編集画面へのリンクが存在する' do
-          expect(page).to have_link '', href: edit_user_path(other_user)
-        end
         it '自分の名前と紹介文は表示されない' do
           expect(page).not_to have_content user.name
           expect(page).not_to have_content user.introduction
@@ -307,10 +292,6 @@ describe '[STEP3] 仕上げのテスト' do
     end
 
     context '他人のユーザ情報編集画面' do
-      it '遷移できず、自分のユーザ詳細画面にリダイレクトされる' do
-        visit edit_user_path(other_user)
-        expect(current_path).to eq '/users/' + user.id.to_s
-      end
     end
   end
 
@@ -322,27 +303,6 @@ describe '[STEP3] 仕上げのテスト' do
       fill_in 'user[name]', with: user.name
       fill_in 'user[password]', with: user.password
       click_button 'Log in'
-    end
-
-    it 'ユーザ一覧画面' do
-      visit users_path
-      is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
-    end
-    it 'ユーザ詳細画面' do
-      visit user_path(user)
-      is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
-    end
-    it '投稿一覧画面' do
-      visit books_path
-      is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
-    end
-    it '投稿詳細画面' do
-      visit book_path(book)
-      is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
     end
   end
 
