@@ -1,0 +1,54 @@
+<div class="container row mx-auto">
+<div class="col-md-3">
+<div class="panel panel-default">
+  <div class="panel-body">
+<%= render 'list', book: @book %>
+</div>
+
+  </div>
+</div>
+
+
+<div class="col-md-9">
+   <h1>Books</h1>
+   <table class="table">
+            <thead>
+                <tr><th></th>
+                    <th>Title</th>
+                    <th>Opinion</th>
+                </tr>
+            </thead>
+ <% @books.each do |book| %>
+               <tbody>
+                <tr>
+                  <td>
+
+                    <% if @userx.find(book.user_id).profile_image.attached? %>
+                    <%= link_to user_path(book.user) do %>
+                    <%= image_tag @userx.find(book.user_id).profile_image.variant(resize_to_limit: [100, 100]) %><% end %>
+                     <% else %>
+                     <%= link_to user_path(book.user) do %><%= image_tag 'sss.jpg' %><% end %>
+                     <% end %>
+
+
+                  </td>
+                <td>
+      <a href= '<%= "/books/#{book.id}" %>'>
+      <%= book.title %><br>
+                </td>
+                <td>
+      <%= book.body %></td>
+                </tr>
+                </tbody>
+<% end %>
+
+  <%= paginate @books %>
+
+
+  </table>
+  </div>
+  </div>
+</div>
+
+</div>
+

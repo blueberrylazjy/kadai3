@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ li{
+  list-style-type: none;
+}
+ .heading {
+   background-color:black;
+   color: white;
+ }
+ .containerleft{
+  text-align: center;
+  background-color: yellow;
+ }
+ .containerright{
+  background-color: grey;
+ }
+ .test {
+  background-color:green;
+  color:white;
+ }
+
+ .test2 {
+  display: inline-block;
+  width:500px;
+  height:40px;
+  background-color:green;
+  color:white;
+  line-height:40px;
+  border-radius: 8px;
+}
+ .test3{
+  display: inline-block;
+  color:white;
+  }
+.container{
+
+}
+
+
+ .test1{
+    display: inline-block;
+  width:500px;
+  height:40px;
+  color:white;
+  background-color: blue;
+  line-height:40px;
+  border-radius: 8px;
+ }
+
+ .toppart {
+  background-color: grey;
+
+ }
+.toppage{
+  text-align: center;
+}
+.key{
+ color:white;
+}
+.nav-link{
+ color:white;
+}
+.toppage1{
+     margin: 0 auto;
+    text-align: center;
+}
+.txt{
+    display: inline-block;
+    text-align: left;
+}
+.copyright{
+ text-align:center;
+}
+.botton{
+     display: inline-block;
+  width:80px;
+  height:40px;
+  color:white;
+  background-color: green;
+  line-height:40px;
+  border-radius: 8px;
+  position:relative;
+}
+.botton1{
+    display: inline-block;
+  width:80px;
+  height:40px;
+  color:white;
+  background-color: red;
+  line-height:40px;
+  border-radius: 8px;
+  margin:0 auto;
+  position:relative;
+}
+.botton　span{
+  top: 50%;
+  left: 50%;
+}
+.botton1 span{
+ display: flex;
+   justify-content: center;
+
+}
+.botton span{
+ display: flex;
+   justify-content: center;
+}
+.botton3{
+ display:inline-block;
+ width:200px;
+ height:30px;
+ border: 2px solid black;
+ color:grey;
+ border-radius: 5px;
+}
+.botton3:hover{
+ background-color: grey;
+ color:white;
+ cursor: pointer;
+ transition: 0.3s;
+}
+.bookerbotton{
+ display:inline-block;
+ float:left;
+ width:30px;
+ height:30px;
+
+}
+.bar{
+ text-align: right;
+}

@@ -1,0 +1,24 @@
+<%= flash[:notice] %>
+<div class="toppage1">
+<h1　class="txt">Welcome to<i class="fas fa-book"></i>Bookers!!</h1><br>
+<p class="txt">In</p>
+<h4 class= "txt"><i class="fas fa-book"></i>Bookers,</h4>
+<br>
+<p class="txt">you can share and exchange your opinions , inpressions , and emotions<br>about various books!</p>
+</div>
+
+
+<div class="toppage">
+<% if user_signed_in? %>
+<li><a href='<%= "/users/#{current_user.id}" %>' class='test1'>Log in</a></li><br>
+<li><a href='<%= "/users/#{current_user.id}" %>' class='test2'>Sign up</a></li><br>
+
+<% else %>
+
+<li><a href='/users/sign_in' class="test1">Log in</a></li><br>
+<li><a href='/users/sign_up'class="test2">Sign up</a></li><br>
+
+
+<% end %>
+</div>
+

@@ -1,0 +1,67 @@
+<div class="container row mx-auto">
+<div class="col-md-3">
+<% if @book.user_id == current_user.id %>
+<%= render 'users/list', book: @book %>
+<% else %>
+<%= render 'users/listx', book: @book %>
+<% end %>
+</div>
+
+
+<div class="col-md-9">
+<div>
+  <h1>Book detail</h1>
+</div>
+
+
+<table class="table">
+  <td>
+                     <% if @user.profile_image.attached? %>
+                    <%= link_to user_path(@book.user_id) do %>
+                    <%= image_tag @user.profile_image.variant(resize_to_limit: [100, 100]) %><% end %>
+                     <% else %>
+                    <a href='<%= "/users/#{@book.user_id}" %>'><%= image_tag 'sss.jpg' %></a><br>
+                   <%= link_to @user.name, user_path(@book.user_id) %>
+                     <% end %><br>
+  </td>
+
+
+
+<td> <a href= '<%= "/books/#{@book.id}" %>'>
+      <%= @book.title %></td>
+      <td><%= @book.body %></td>
+
+ <td>
+      <% if @book.favorited_by?(current_user) %>
+
+      <%= link_to book_favorites_path(@book), method: :delete do %>
+        ♥<%= @book.favorites.count %> いいね
+      <% end %>
+
+    <% else %>
+
+      <%= link_to book_favorites_path(@book), method: :post do %>
+        ♡<%= @book.favorites.count %> いいね
+      <% end %>
+
+  <% end %>
+</td>
+
+
+<% if @book.user_id == current_user.id %>
+   <td><li><a href='<%= "/books/#{@book.id}/edit" %>' class='botton'>Edit</a></li> </td>
+    <td><%= link_to  book_path, method: :delete, "data-confirm" => "本当に削除しますか？" do  %>
+    <div class="botton1"><span>Destroy<span></div><% end %></td>
+<% end %>
+</table>
+
+
+  </div>
+  <div>
+  <%= form_with model: @post_comment do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+</div>
+

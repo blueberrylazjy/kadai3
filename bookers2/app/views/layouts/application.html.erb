@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+  <header>
+    <div class="toppart">
+    <% if user_signed_in? %>
+      <div ><a class="navbar-brand p-3 key" href="/">Bookers</a></div>
+
+      <li ><i class="fas fa-home"></i>
+      <a href='<%= "/users/#{current_user.id}" %>' class='test3'>Home</a>
+      </li><br>
+
+      <li ><i class="fas fa-users"></i>
+      <a href='<%= "/users" %>' class='test3'>Users</a>
+      </li><br>
+
+      <li ><i class="fas fa-book-open"></i>
+      <a href='<%= "/books" %>' class='test3'>Books</a>
+      </li><br>
+
+
+      <li class="nav-item key"><i class="fas fa-sign-out-alt"></i>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li><br>
+
+
+
+    <% else %>
+      <a class="navbar-brand p-3 key" href="/">Bookers</a><br>
+
+      <li ><i class="fas fa-home"></i>
+      <a href="/"  class='test3'>Home</a>
+      </li><br>
+
+       <li ><i class="fas fa-link"></i>
+      <a href='/home/about' class='test3'>About</a>
+      </li><br>
+
+      <li><i class="fas fa-user-plus"></i>
+      <a href='/users/sign_up' class='test3'>Sign up</a></li><br>
+
+      <li><i class="fas fa-sign-in-alt"></i>
+      <a href='/users/sign_in' class="test3">Log in</a></li><br>
+
+    <% end %>
+    </div>
+  <header>
+    <div class="row"></div>
+    <div class="container col-md-3 "></div>
+  <%= yield %>
+</body>
+<p class="copyright">CopyRight Infratop.inc</p>
+</html>
