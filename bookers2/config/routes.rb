@@ -6,7 +6,7 @@ get "home/about" => "homes#about", as: "about"
 root to: "homes#top"
 resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
   resource :favorites, only: [:create, :destroy]
-  resources:post_comments, only: [:create]
+  resource :book_comments, only: [:create, :destroy]
 end
 resources :users, only: [:show, :edit, :update, :index]
 

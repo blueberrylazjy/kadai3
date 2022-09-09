@@ -16,6 +16,9 @@
  li{
   list-style-type: none;
 }
+ i{
+  list-style-type: none;
+}
  .heading {
    background-color:black;
    color: white;
@@ -46,12 +49,19 @@
   color:white;
   }
 .container{
-
 }
 
+.toptable {
+ display: flex;
+ justify-content: flex-end;
+}
+.topbotton{
+ color:white;
+ font-size:18px;
 
+}
  .test1{
-    display: inline-block;
+   display: inline-block;
   width:500px;
   height:40px;
   color:white;
@@ -61,7 +71,9 @@
  }
 
  .toppart {
-  background-color: grey;
+  background-color: black;
+  padding-left:500px;
+  padding-right:500px;
 
  }
 .toppage{

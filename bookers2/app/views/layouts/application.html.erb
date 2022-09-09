@@ -14,45 +14,48 @@
   <header>
     <div class="toppart">
     <% if user_signed_in? %>
-      <div ><a class="navbar-brand p-3 key" href="/">Bookers</a></div>
+     <div class="toptable"> <TABLE><TR><TD ALIGN="LEFT"><a class="navbar-brand p-3 key" href="/">Bookers</a><TD>
 
-      <li ><i class="fas fa-home"></i>
-      <a href='<%= "/users/#{current_user.id}" %>' class='test3'>Home</a>
+      <li ><TD ALIGN="RIGHT">
+      <a href='<%= "/users/#{current_user.id}" %>' class='test3 topbotton'><i class="fas fa-home"></i>Home</a>
       </li><br>
 
-      <li ><i class="fas fa-users"></i>
-      <a href='<%= "/users" %>' class='test3'>Users</a>
+      <li ><TD ALIGN="RIGHT">
+      <a href='<%= "/users" %>' class='test3 topbotton'><i class="fas fa-users"></i>Users</a>
       </li><br>
 
-      <li ><i class="fas fa-book-open"></i>
-      <a href='<%= "/books" %>' class='test3'>Books</a>
+      <li ><TD ALIGN="RIGHT">
+      <a href='<%= "/books" %>' class='test3 topbotton'><i class="fas fa-book-open"></i>Books</a>
       </li><br>
 
 
-      <li class="nav-item key"><i class="fas fa-sign-out-alt"></i>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <li class="nav-item key"><TD ALIGN="RIGHT"><a class="test3 topbotton"><%= link_to destroy_user_session_path, method: :delete do  %><i class="fas fa-sign-out-alt topbotton"></i><i class="topbotton">Log out</i
+        </a><% end %>
       </li><br>
 
 
 
     <% else %>
-      <a class="navbar-brand p-3 key" href="/">Bookers</a><br>
+      <div class="toptable"><TABLE><TR><a class="navbar-brand p-3 key" href="/">Bookers</a>
 
-      <li ><i class="fas fa-home"></i>
-      <a href="/"  class='test3'>Home</a>
+      <li ><TD ALIGN="RIGHT">
+      <a href="/"  class='test3 topbotton'><i class="fas fa-home"></i>Home</a>
       </li><br>
 
-       <li ><i class="fas fa-link"></i>
-      <a href='/home/about' class='test3'>About</a>
+       <li ><TD ALIGN="RIGHT">
+      <a href='/home/about' class='test3 topbotton'><i class="fas fa-link"></i>About</a>
       </li><br>
 
-      <li><i class="fas fa-user-plus"></i>
-      <a href='/users/sign_up' class='test3'>Sign up</a></li><br>
+      <li><TD ALIGN="RIGHT">
+      <a href='/users/sign_up' class='test3 topbotton'><i class="fas fa-user-plus"></i>Sign up</a></li><br>
 
-      <li><i class="fas fa-sign-in-alt"></i>
-      <a href='/users/sign_in' class="test3">Log in</a></li><br>
+      <li><TD ALIGN="RIGHT">
+      <a href='/users/sign_in' class="test3 topbotton"><i class="fas fa-sign-in-alt"></i>Log in</a></li><br>
 
     <% end %>
+   </TR>
+        </TABLE>
+        </div>
     </div>
   <header>
     <div class="row"></div>
