@@ -1,4 +1,4 @@
-<div class="container">
+<div class="containerleft">
 
 <%= flash[:notice] %>
 
@@ -6,21 +6,21 @@
 
 <table class="table">
   <tr>
-  <% if current_user.profile_image.attached? %>
-  <%= image_tag current_user.profile_image.variant(resize_to_limit: [100, 100]) %>
+  <% if @user.profile_image.attached? %>
+  <%= image_tag @user.profile_image.variant(resize_to_limit: [100, 100]) %>
   <% else %>
   <%= image_tag 'sss.jpg' %>
 <% end %>
 </tr>
 
-<tr><th>name</th><td><%= current_user.name %></td></tr>
-<tr><th>introduction</th><td><%= current_user.introduction %></td></tr>
+<tr><th>name</th><td><%= @user.name %></td></tr>
+<tr><th>introduction</th><td><%= @user.introduction %></td></tr>
 
 </table>
 
 
 
-<%= link_to  edit_user_path(current_user.id) do%><span class="botton3">
+<%= link_to  user_path(current_user.id) do%><span class="botton3">
   <i class="fas fa-user-cog"></i></span><% end %>
 
 

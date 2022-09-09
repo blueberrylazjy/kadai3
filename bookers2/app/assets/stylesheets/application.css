@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .message{
+  text-align:center;
+ }
  li{
   list-style-type: none;
 }
@@ -25,7 +28,6 @@
  }
  .containerleft{
   text-align: center;
-  background-color: yellow;
  }
  .containerright{
   background-color: grey;
@@ -44,13 +46,44 @@
   line-height:40px;
   border-radius: 8px;
 }
+.messager{
+ text-align:center;
+
+}
+.inner {
+  max-width: 1500px;
+  width: 97%;
+  margin: 0 auto;
+}
+
+.sticky-table {
+  width: 100%;
+  min-width: 450px;
+  overflow-x: scroll;
+  border: 1px solid #888;
+  border-collapse: collapse;
+}
+
+.sticky-table th, .sticky-table td {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #888;
+}
+
+.sticky-table th {
+  background: #f5f5f5;
+}
+.message{
+  width:200px;
+  background-color:green;
+  color:white;
+  line-height:40px;
+  border-radius: 8px;
+}
  .test3{
   display: inline-block;
   color:white;
   }
-.container{
-}
-
 .toptable {
  display: flex;
  justify-content: flex-end;

@@ -60,12 +60,9 @@
 
 
 <td>
-    <p>コメント件数：<%= book.post_comments.count %></p>
-  <% book.post_comments.each do |post_comment| %>
-    <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-  <% end %>
+    <p>コメント件数：<%= book.book_comments.count %>
+     <% book.book_comments.each do |book| %>
+    <% end %>
 </td>
 
                 </tbody>

@@ -44,10 +44,13 @@ class BooksController < ApplicationController
   end
 
   def show
+
     @book_comment = BookComment.new
     @book = Book.find(params[:id])
+    @book_comments = @book.book_comments.all.page(params[:page]).per(4)
     number= @book.user_id
     @user = User.find(number)
+    @userx = User
   end
 
   private
